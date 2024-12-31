@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<th:block th:fragment="head">
+    <title>k8s Panel</title>
+    <meta charset="UTF-8"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</th:block>
+
+<body>
+
+<header th:fragment="header" class="header">
+    <div class="left">
+        <a href="#">k8s Panel</a>
+    </div>
+
+    <div class="right">
+        <a href="#">Servers</a>
+        <a href="#">Admin</a>
+        <a href="#">Settings</a>
+    </div>
+</header>
+
+<footer th:fragment="footer">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    Footer
+</footer>
+
+</body>
+</html>

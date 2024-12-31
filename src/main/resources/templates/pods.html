@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/general.html :: head}">
+    <title>k8s Panel</title>
+</head>
+
+<body>
+
+<header th:insert="~{fragments/general.html :: header}"></header>
+
+<div th:each="pod: ${pods}">
+    <div th:text="${pod}"></div>
+</div>
+
+<footer th:insert="~{fragments/general.html :: footer}"></footer>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+.nodes {
+    padding: 20px;
+}
+
+.nodes > :nth-child(2) {
+    border-radius: 0 0 10px 10px !important;
+}
+
+.node {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    background: var(--card-color);
+    border-radius: 10px;
+}
+
+.node > * {
+    width: calc(100% / 6);
+    background: var(--card-color);
+    border-right: 1px solid var(--card-border);
+}
+
+.node > .node-addresses > * > * {
+    background: var(--card-color);
+}
+
+.nodes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    background: var(--header-color);
+    border-radius: 10px 10px 0 0;
+}
+
+.nodes-header > * {
+    width: calc(100% / 6);
+    background: var(--header-color);
+    border-right: 1px solid var(--card-border);
+}
+
+.status-indicator {
+    width: 6px;
+    height: 35px;
+    border-radius: 10000px;
+    background: red;
+    margin: 0 5px 0 5px;
+}

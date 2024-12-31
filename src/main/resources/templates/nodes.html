@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!--suppress HtmlRequiredTitleElement, HtmlUnknownTag, CheckEmptyScriptTag -->
+    <head th:replace="~{fragments/general.html :: head}"/>
+    <title>k8s Panel</title>
+    <link th:href="@{/css/nodes.css}" rel="stylesheet">
+</head>
+
+<body>
+
+<header th:insert="~{fragments/general.html :: header}"></header>
+
+<div class="nodes">
+    <div class="nodes-header">
+        <div>Name</div>
+        <div>Status</div>
+        <div>Addresses</div>
+        <div>CPU</div>
+        <div>Memory</div>
+        <div>Storage</div>
+    </div>
+    <div class="node" th:each="node: ${nodes}">
+        <div class="status-indicator"></div>
+        <div th:text="${node.getName()}" class="text-left pl-5"></div>
+        <div th:text="${node.getStatus()}"></div>
+
+        <div class="node-addresses">
+            <div th:each="address: ${node.getAddresses()}">
+                <div th:text="${address}"></div>
+            </div>
+        </div>
+
+        <div th:text="${node.getAllocatedCPU()} + '/' + ${node.getCapacityCPU()}"></div>
+        <div th:text="${node.getAllocatedMemory()} + '/' + ${node.getCapacityMemory()}"></div>
+        <div th:text="${node.getAllocatedStorage()} + '/' + ${node.getCapacityStorage()}"></div>
+    </div>
+</div>
+
+
+<footer th:insert="~{fragments/general.html :: footer}"></footer>
+
+</body>
+
+</html>
