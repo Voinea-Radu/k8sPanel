@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!--suppress HtmlRequiredTitleElement, HtmlUnknownTag, CheckEmptyScriptTag -->
@@ -13,29 +13,40 @@
 <header th:insert="~{fragments/general.html :: header}"></header>
 
 <div class="nodes">
-    <div class="nodes-header">
-        <div>Name</div>
-        <div>Status</div>
+    <div class="nodes-header generic-node">
+        <div style="width: 50%;">Name</div>
         <div>Addresses</div>
         <div>CPU</div>
         <div>Memory</div>
         <div>Storage</div>
     </div>
-    <div class="node" th:each="node: ${nodes}">
+    <a class="node-container" th:each="node: ${nodes}" href="#">
         <div class="status-indicator"></div>
-        <div th:text="${node.getName()}" class="text-left pl-5"></div>
-        <div th:text="${node.getStatus()}"></div>
 
-        <div class="node-addresses">
-            <div th:each="address: ${node.getAddresses()}">
-                <div th:text="${address}"></div>
-            </div>
+        <div class="node generic-node">
+            <span class="node-entry" style="width: 50%;">
+                <img style="width: auto; height: 35px; margin: 0 20px 0 20px; background: #888888; border-radius: 10000px; padding: 8px 20px 8px 20px;" th:src="@{/assets/svg/server.svg}" alt=""/>
+                <span th:text="${node.getName()}"></span>
+            </span>
+            <span class ="node-entry">
+
+                <img th:src="@{/assets/svg/network.svg}" alt=""/>
+                <span th:text="${node.getAddress()}"></span>
+            </span>
+            <span class ="node-entry">
+                <img th:src="@{/assets/svg/cpu.svg}" alt=""/>
+                <span th:text="${node.getAllocatedCPU()} + '/' + ${node.getCapacityCPU()}"></span>
+            </span>
+            <span class ="node-entry">
+                <img th:src="@{/assets/svg/memory.svg}" alt=""/>
+                <span th:text="${node.getAllocatedMemory()} + '/' + ${node.getCapacityMemory()}"></span>
+            </span>
+            <span class ="node-entry">
+                <img th:src="@{/assets/svg/storage.svg}" alt=""/>
+                <span th:text="${node.getAllocatedStorage()} + '/' + ${node.getCapacityStorage()}"></span>
+            </span>
         </div>
-
-        <div th:text="${node.getAllocatedCPU()} + '/' + ${node.getCapacityCPU()}"></div>
-        <div th:text="${node.getAllocatedMemory()} + '/' + ${node.getCapacityMemory()}"></div>
-        <div th:text="${node.getAllocatedStorage()} + '/' + ${node.getCapacityStorage()}"></div>
-    </div>
+    </a>
 </div>
 
 

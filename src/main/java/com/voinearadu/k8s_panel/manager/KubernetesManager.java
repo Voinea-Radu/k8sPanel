@@ -35,7 +35,7 @@ public class KubernetesManager {
             Map<String, Quantity> capacity = status.getCapacity();
 
             if (addresses != null) {
-                builder.addresses(addresses.stream().map(V1NodeAddress::getAddress).toList());
+                builder.address(addresses.stream().map(V1NodeAddress::getAddress).findFirst().orElse("N/A"));
             }
 
             if (capacity != null) {

@@ -2,17 +2,25 @@
     padding: 20px;
 }
 
-.nodes > :nth-child(2) {
-    border-radius: 0 0 10px 10px !important;
-}
-
-.node {
+.generic-node {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
     text-align: center;
+    height: 60px;
+}
+
+.generic-node > * {
+    border-right: 1px solid var(--card-border);
+}
+
+.generic-node > :last-child {
+    border-right: none;
+}
+
+.node {
     background: var(--card-color);
     border-radius: 10px;
 }
@@ -20,20 +28,13 @@
 .node > * {
     width: calc(100% / 6);
     background: var(--card-color);
-    border-right: 1px solid var(--card-border);
 }
 
-.node > .node-addresses > * > * {
+.node > * > * {
     background: var(--card-color);
 }
 
 .nodes-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 10px;
-    text-align: center;
     background: var(--header-color);
     border-radius: 10px 10px 0 0;
 }
@@ -41,13 +42,35 @@
 .nodes-header > * {
     width: calc(100% / 6);
     background: var(--header-color);
-    border-right: 1px solid var(--card-border);
+}
+
+.node-container {
+    position: relative;
+}
+
+.node:hover {
+    border: 1px solid var(--accent-color);
 }
 
 .status-indicator {
     width: 6px;
-    height: 35px;
+    height: 40px;
     border-radius: 10000px;
     background: red;
     margin: 0 5px 0 5px;
+    position: absolute;
+    top: 10px;
+    left: 4px
+}
+
+.node-entry {
+    display: flex;
+    align-items: center;
+}
+
+.node-entry > img {
+    height: 17px;
+    margin: 0 10px 0 20px;
+    color: white;
+    fill:white;
 }

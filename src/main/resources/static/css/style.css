@@ -7,10 +7,19 @@
     --text-color: white;
 }
 
+.material-symbols-outlined {
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 100,
+            'GRAD' -25,
+            'opsz' 48
+}
+
 * {
     font-size: 20px;
     background: var(--main-color);
     color: var(--text-color);
+    font-family: sans-serif;
 }
 
 .header {

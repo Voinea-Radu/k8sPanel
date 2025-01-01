@@ -17,7 +17,7 @@ public class NodeMetadata {
     private Status status = Status.NOT_READY;
 
     @Builder.Default
-    private List<String> addresses = new ArrayList<>();
+    private String address = "N/A";
 
     @Builder.Default
     private int capacityCPU = -1;
