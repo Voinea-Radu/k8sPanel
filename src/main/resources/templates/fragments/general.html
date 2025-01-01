@@ -5,6 +5,7 @@
     <title>k8s Panel</title>
     <meta charset="UTF-8"/>
     <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/header.css}" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=host" />
@@ -15,7 +16,14 @@
 
 <header th:fragment="header" class="header">
     <div class="left">
-        <a href="#">k8s Panel</a>
+        <a href="#" class="title">k8s Panel</a>
+        <div class="dropdown">
+            <button class="dropdown-button" th:text="'▾ ' + ${active_namespace}"></button>
+
+            <div class="dropdown-content">
+                <a class="node-container" th:each="namespace: ${namespaces}" th:text="${namespace}" href="#"></a>
+            </div>
+        </div>
     </div>
 
     <div class="right">

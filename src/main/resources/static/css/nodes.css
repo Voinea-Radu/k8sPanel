@@ -23,6 +23,12 @@
 .node {
     background: var(--card-color);
     border-radius: 10px;
+    border:1px solid transparent;
+    box-sizing: border-box;
+}
+
+.node:hover {
+    border-color: var(--accent-color);
 }
 
 .node > * {
@@ -48,9 +54,7 @@
     position: relative;
 }
 
-.node:hover {
-    border: 1px solid var(--accent-color);
-}
+
 
 .status-indicator {
     width: 6px;
